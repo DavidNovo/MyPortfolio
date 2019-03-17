@@ -4,17 +4,17 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link href="site.webmanifest" rel="manifest">
+    <link href="icon.png" rel="apple-touch-icon">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/mocha@3.4.2/mocha.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <meta name="theme-color" content="#fafafa">
+    <meta content="#fafafa" name="theme-color">
 </head>
 
 <body>
@@ -26,9 +26,11 @@
 <!-- Add your site or application content here -->
 <p>Hello world! This is HTML5 Boilerplate.</p>
 <main>
-    <div id="content" align="left"></div>
-    <div id="second" align="right"></div>
+    <div align="left" id="content"></div>
+    <div align="right" id="second"></div>
 </main>
+<div id="mocha"></div>
+
 <!-- Javascript compiler-->
 <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'>
 </script>
@@ -37,7 +39,9 @@
 </script>
 <script src='https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js'>
 </script>
-<script type="text/babel" data-presets="latest">
+<script src="https://unpkg.com/mocha@3.4.2/mocha.js"></script>
+<script src="https://unpkg.com/chai@4.0.2/chai.js"></script>
+<script data-presets="latest" type="text/babel">
     const getMessage = (name) => `Welcome to Javescript, ${name}`;
     document.getElementById('second').textContent = getMessage("David");
 </script>
@@ -73,6 +77,34 @@
     ReactDOM.render(
         <Hello/>, document.getElementById("content")
     );
+</script>
+
+<script type="text/babel" data-presets="react">
+    const assert = chai.assert;
+
+    mocha.ui("bdd");
+    mocha.reporter("html");
+
+    describe("Example tests", () => {
+        it("proves that math works",() => {
+            assert.equal(5, 3 + 2, "Math works");
+            assert.notEqual(3+2, 6, "Math still works");
+        });
+        it("found our component", () => {
+
+        });
+        it("Let us test a function",() => {
+            let myName = "David";
+            const greet = (name) => "Hello, " + name + "!";
+
+            assert.include(greet(myName), myName, "Greeting includes name.");
+        });
+    });
+
+    mocha.run();
+
+
+
 </script>
 </body>
 
