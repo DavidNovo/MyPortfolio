@@ -11,8 +11,9 @@
     <link href="icon.png" rel="apple-touch-icon">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="https://unpkg.com/mocha@3.4.2/mocha.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/mocha@3.4.2/mocha.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 
     <meta content="#fafafa" name="theme-color">
 </head>
@@ -49,6 +50,9 @@
 <script type="text/babel">
 
     /* ADD REACT CODE HERE */
+    import * as React from "react";
+    import * as ReactDOM from "react-dom";
+
     class Hello extends React.Component {
         constructor() {
             super();
@@ -79,21 +83,21 @@
     );
 </script>
 
-<script type="text/babel" data-presets="react">
+<script data-presets="react" type="text/babel">
     const assert = chai.assert;
 
     mocha.ui("bdd");
     mocha.reporter("html");
 
     describe("Example tests", () => {
-        it("proves that math works",() => {
+        it("proves that math works", () => {
             assert.equal(5, 3 + 2, "Math works");
-            assert.notEqual(3+2, 6, "Math still works");
+            assert.notEqual(3 + 2, 6, "Math still works");
         });
         it("found our component", () => {
 
         });
-        it("Let us test a function",() => {
+        it("Let us test a function", () => {
             let myName = "David";
             const greet = (name) => "Hello, " + name + "!";
 
@@ -102,7 +106,6 @@
     });
 
     mocha.run();
-
 
 
 </script>
