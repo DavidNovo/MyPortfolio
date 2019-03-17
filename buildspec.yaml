@@ -4,6 +4,7 @@ phases:
   build:
     commands:
       - echo nothing to do yet
+      - echo if we start using webpack add those commands here
 artifacts:
   files:
     - favicon.ico
