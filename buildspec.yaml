@@ -1,6 +1,10 @@
 version: 0.1
 
 phases:
+  pre_build:
+    commands:
+      -- echo this is the place to install needed tools onto the build server
+      -- echo for example if I need npm, add 'npm install' to this section
   build:
     commands:
       - echo nothing to do yet
