@@ -60,3 +60,6 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
+# other directories
+node_modules
+
